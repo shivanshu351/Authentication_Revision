@@ -61,9 +61,7 @@ app.post('/login', async (req, res) => {
     {
         return res.status(404).json({success:false,message:"user not found"})
     }
-    const userDetails = await User.findOne({
-        name : name,
-        email:email,
+    const userDetails = await User.findOne({email
     })
 
     const token = jwt.sign({
