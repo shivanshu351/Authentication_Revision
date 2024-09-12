@@ -23,6 +23,7 @@ export default function Login()
 
         if(data.success)
         {
+            localStorage.setItem('token',data.token)
             alert('Login Successful')
             window.location.href='quote'
         }
