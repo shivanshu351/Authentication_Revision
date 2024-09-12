@@ -3,6 +3,8 @@ import cors from "cors"
 import connectDb from './db/db.connect.js';
 import User from './models/db.config.js';
 import bcrypt from "bcrypt"
+import jwt from 'jsonwebtoken'
+import dotenv from 'dotenv'
 
 const app = express();
 
@@ -59,8 +61,18 @@ app.post('/login', async (req, res) => {
     {
         return res.status(404).json({success:false,message:"user not found"})
     }
+    const userDetails = await User.findOne({
+        name : name,
+        email:email,
+    })
 
+    const token = jwt.sign({
+        name:userDetails.name,
+        email : userDetails.email,
+    },process.env.SECRET_KEY)
     
+
+
 
 })
 
