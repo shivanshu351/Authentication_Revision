@@ -21,6 +21,15 @@ export default function Login()
 
         const data = await response.json();
 
+        if(data.success)
+        {
+            alert('Login Successful')
+            window.location.href='quote'
+        }
+        else
+        {
+            alert('Check your password')
+        }
         console.log(data)
     }
     
@@ -31,7 +40,7 @@ export default function Login()
                 <input placeholder="email" type="email" value={email} onChange={(e)=>(setEmail(e.target.value))}></input>
                 <label>Password</label>
                 <input placeholder="password" type="password" value={password} onChange={(e)=>(setPassword(e.target.value))}></input>
-                <button onClick={setDetails}>Submit</button>
+                <button onClick={setDetails}>Login</button>
             </div>
         </>
     )

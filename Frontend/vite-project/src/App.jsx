@@ -1,6 +1,7 @@
 import Signup from "../components/Signup";
 import Login from "../components/Login";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Quote from "../components/quote";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
         <Routes>
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/quote" element={<Quote/>} />
         </Routes>
       </BrowserRouter>
     </>

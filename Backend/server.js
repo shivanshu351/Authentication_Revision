@@ -68,10 +68,8 @@ app.post('/login', async (req, res) => {
         name:userDetails.name,
         email : userDetails.email,
     },process.env.SECRET_KEY)
-    
 
-
-
+    return res.status(200).json({success:true,message:"user logged in"});
 })
 
 
