@@ -46,7 +46,22 @@ app.post('/signup', async (req, res) => {
 
 app.post('/login', async (req, res) => {
 
+    const { email, password } = req.body;
+
+    if(!email || !password)
+    {
+        return res.status(400).json({success:false,message:"please enter all details"})
+    }
+
+    const userExists = await User.findOne({email});
+
+    if(!userExists)
+    {
+        return res.status(404).json({success:false,message:"user not found"})
+    }
+
     
+
 })
 
 
